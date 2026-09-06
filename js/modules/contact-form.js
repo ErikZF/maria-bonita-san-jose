@@ -6,6 +6,14 @@
 (function () {
   window.MB = window.MB || {};
 
+  /* Traduce un texto de UI si hay diccionario (ES por defecto). */
+  var t = function (clave, vars) {
+    if (MB.t) return MB.t(clave, vars);
+    var s = clave;
+    if (vars) Object.keys(vars).forEach(function (k) { s = s.replace("{" + k + "}", vars[k]); });
+    return s;
+  };
+
   var TIPO_LABELS = {
     catering: "Catering / evento",
     mesa: "Mesa regular",
@@ -93,13 +101,13 @@
     var d = new Date(fechaStr + "T00:00:00");
     if (isNaN(d.getTime())) return null;
     var rango = HORARIO[d.getDay()];
-    if (!rango) return { campo: "fecha", msg: "Los lunes el restaurante está cerrado." };
+    if (!rango) return { campo: "fecha", msg: t("Los lunes el restaurante está cerrado.") };
     var p = horaStr.split(":");
     var minutos = Number(p[0]) * 60 + Number(p[1]);
     var abre = rango[0][0] * 60 + rango[0][1];
     var cierra = rango[1][0] * 60 + rango[1][1];
     if (minutos < abre || minutos > cierra) {
-      return { campo: "hora", msg: "Ese día atendemos de " + hhmm(rango[0]) + " a " + hhmm(rango[1]) + "." };
+      return { campo: "hora", msg: t("Ese día atendemos de {a} a {b}.", { a: hhmm(rango[0]), b: hhmm(rango[1]) }) };
     }
     return null;
   }
@@ -144,8 +152,8 @@
 
       var validarCampo = function (name) {
         if (!REGLAS[name] || !erroresUI[name]) return "";
-        var msg = REGLAS[name](valor(name));
-        pintarCampo(name, msg);
+        var msg = REGLAS[name](valor(name));       // clave en español (o "")
+        pintarCampo(name, msg ? t(msg) : "");       // se muestra traducido
         return msg;
       };
 
@@ -185,8 +193,8 @@
 
         if (faltan) {
           mostrarEstado(
-            faltan === 1 ? "Revisa el campo marcado antes de enviar."
-              : "Revisa los " + faltan + " campos marcados antes de enviar.",
+            faltan === 1 ? t("Revisa el campo marcado antes de enviar.")
+              : t("Revisa los {n} campos marcados antes de enviar.", { n: faltan }),
             "error"
           );
           if (primerInvalido) primerInvalido.focus();
@@ -205,8 +213,8 @@
         MB.abrirWhatsApp(texto);
 
         mostrarEstado(
-          "Te llevamos a WhatsApp para enviar tu solicitud a María Bonita. " +
-          "Si no se abrió, escríbenos directo al " + MB.WHATSAPP_DISPLAY + ".",
+          t("Te llevamos a WhatsApp para enviar tu solicitud a María Bonita. Si no se abrió, escríbenos directo al {tel}.",
+            { tel: MB.WHATSAPP_DISPLAY }),
           "ok"
         );
         form.reset();
