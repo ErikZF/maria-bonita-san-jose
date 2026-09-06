@@ -1,0 +1,158 @@
+/* =========================================================
+   MARÍA BONITA — animaciones
+   Se carga DESPUÉS de styles.css. Usa los elementos que ya
+   existen en las páginas; no cambia colores, tipografías ni
+   distribución. Todo el movimiento se desactiva solo con
+   prefers-reduced-motion (bloque global en styles.css + el
+   refuerzo del final de este archivo).
+   La clase .js-anim la agrega js/modules/animations.js: si el
+   JS no corre, el contenido queda visible y quieto.
+   ========================================================= */
+
+/* ---------- 1. Aparición al hacer scroll ----------
+   animations.js marca los elementos con .reveal y les pone
+   .is-visible cuando entran en pantalla. */
+.js-anim .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+.js-anim .reveal.is-visible { opacity: 1; transform: none; }
+
+.js-anim .reveal--left  { transform: translateX(-30px); }
+.js-anim .reveal--right { transform: translateX(30px); }
+.js-anim .reveal--zoom  { transform: scale(0.94); }
+.js-anim .reveal--left.is-visible,
+.js-anim .reveal--right.is-visible,
+.js-anim .reveal--zoom.is-visible { transform: none; }
+
+/* ---------- 2. Entrada del hero principal (al cargar) ---------- */
+@keyframes mb-rise {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-content > * { animation: mb-rise 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+.hero-content > *:nth-child(1) { animation-delay: 0.05s; }
+.hero-content > *:nth-child(2) { animation-delay: 0.15s; }
+.hero-content > *:nth-child(3) { animation-delay: 0.25s; }
+.hero-content > *:nth-child(4) { animation-delay: 0.35s; }
+.hero-content > *:nth-child(5) { animation-delay: 0.45s; }
+
+/* Hero de páginas internas */
+.page-hero .container > *,
+.page-hero-negra .container > * { animation: mb-rise 0.7s ease both; }
+.page-hero .container > *:nth-child(2),
+.page-hero-negra .container > *:nth-child(2) { animation-delay: 0.1s; }
+.page-hero .container > *:nth-child(3),
+.page-hero-negra .container > *:nth-child(3) { animation-delay: 0.2s; }
+.page-hero .container > *:nth-child(4),
+.page-hero-negra .container > *:nth-child(4) { animation-delay: 0.3s; }
+
+/* ---------- 3. Papel picado meciéndose ---------- */
+@keyframes mb-sway {
+  0%, 100% { transform: translateY(0) rotate(-0.6deg); }
+  50%      { transform: translateY(3px) rotate(0.6deg); }
+}
+.banderines svg,
+.banderines-fondo-negro svg {
+  transform-origin: top center;
+  animation: mb-sway 6s ease-in-out infinite;
+}
+
+/* ---------- 4. Decoraciones (catrinas, flores, estrellas) flotando ---------- */
+@keyframes mb-float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50%      { transform: translateY(-8px) rotate(3deg); }
+}
+.section-decor { animation: mb-float 7s ease-in-out infinite; }
+.section-decor--tl { animation-duration: 8s; }
+.section-decor--tr { animation-duration: 7.5s; animation-delay: -3s; }
+.section-decor--bl { animation-duration: 6.5s; animation-delay: -1s; }
+.section-decor--br { animation-duration: 6.8s; animation-delay: -2s; }
+/* Estas dos usan transform para centrarse verticalmente: no animar. */
+.section-decor--mr,
+.section-decor--ml { animation: none; }
+
+/* ---------- 5. Serape: leve desplazamiento del tejido ---------- */
+@keyframes mb-serape-shift {
+  from { background-position: 0 0; }
+  to   { background-position: 140px 0; } /* 2 ciclos del patrón (70px) => bucle sin salto */
+}
+.serape-strip { animation: mb-serape-shift 9s linear infinite; }
+.site-footer::before { animation: mb-serape-shift 9s linear infinite; }
+
+/* ---------- 6. Sombra del encabezado al hacer scroll (toggle desde animations.js) ---------- */
+.site-header { transition: box-shadow 0.3s ease; }
+.site-header.is-scrolled { box-shadow: 0 12px 30px -16px rgba(0, 0, 0, 0.55); }
+
+/* ---------- 7. Hover: tarjetas y filas que responden ---------- */
+.value-card,
+.team-card,
+.catering-card,
+.info-row { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.value-card:hover,
+.team-card:hover { transform: translateY(-4px); }
+.catering-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
+
+.team-card img { transition: transform 0.45s ease; }
+.team-card:hover img { transform: scale(1.03); }
+
+.menu-item { transition: transform 0.2s ease, border-color 0.2s ease; }
+.menu-item:hover { transform: translateX(4px); }
+
+.social-icon { transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease; }
+.social-icon:hover { transform: translateY(-2px); }
+
+/* ---------- 8. Botones: brillo al pasar el cursor ---------- */
+.btn { overflow: hidden; }
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.55s ease;
+  pointer-events: none;
+}
+.btn:hover::after { left: 130%; }
+
+/* ---------- 9. Menú: los platillos entran escalonados al cambiar de categoría ---------- */
+.menu-group.is-active .menu-item { animation: mb-rise 0.45s ease both; }
+.menu-group.is-active .menu-item:nth-child(1)  { animation-delay: 0.02s; }
+.menu-group.is-active .menu-item:nth-child(2)  { animation-delay: 0.05s; }
+.menu-group.is-active .menu-item:nth-child(3)  { animation-delay: 0.08s; }
+.menu-group.is-active .menu-item:nth-child(4)  { animation-delay: 0.11s; }
+.menu-group.is-active .menu-item:nth-child(5)  { animation-delay: 0.14s; }
+.menu-group.is-active .menu-item:nth-child(6)  { animation-delay: 0.17s; }
+.menu-group.is-active .menu-item:nth-child(7)  { animation-delay: 0.20s; }
+.menu-group.is-active .menu-item:nth-child(8)  { animation-delay: 0.23s; }
+.menu-group.is-active .menu-item:nth-child(9)  { animation-delay: 0.26s; }
+.menu-group.is-active .menu-item:nth-child(10) { animation-delay: 0.29s; }
+.menu-group.is-active .menu-item:nth-child(n+11) { animation-delay: 0.32s; }
+
+/* ---------- 10. Pestañas del menú y filtros de galería: realce del activo ---------- */
+.menu-tab,
+.filter-tab { transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease; }
+.menu-tab:hover,
+.filter-tab:hover { transform: translateY(-2px); }
+.menu-tab.is-active,
+.filter-tab.is-active { transform: translateY(-1px); }
+
+/* ---------- Refuerzo para quien pide menos movimiento ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .js-anim .reveal { opacity: 1 !important; transform: none !important; }
+  .hero-content > *,
+  .page-hero .container > *,
+  .page-hero-negra .container > *,
+  .menu-group.is-active .menu-item { animation: none !important; }
+  .banderines svg,
+  .banderines-fondo-negro svg,
+  .section-decor,
+  .serape-strip,
+  .site-footer::before { animation: none !important; }
+  .btn::after { display: none; }
+}
