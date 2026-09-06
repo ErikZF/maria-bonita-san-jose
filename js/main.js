@@ -1,23 +1,26 @@
 /* =========================================================
    MARÍA BONITA — punto de entrada
-   Este archivo se carga en TODAS las páginas como módulo:
-     <script type="module" src="../js/main.js"></script>
-   Cada módulo revisa primero si sus elementos existen en la
-   página actual, así que es seguro cargarlo en cualquier página.
+   Se carga en TODAS las páginas DESPUÉS de config.js y los
+   módulos (ver el bloque de <script> al final de cada HTML).
+   Cada init revisa si sus elementos existen en la página
+   actual, así que es seguro en cualquier página.
    ========================================================= */
 
-import { initNav } from "./modules/nav.js";
-import { initCarousel } from "./modules/carousel.js";
-import { initMenuTabs } from "./modules/menu-tabs.js";
-import { initGallery } from "./modules/gallery.js";
-import { initContactForm } from "./modules/contact-form.js";
-import { initAnimations } from "./modules/animations.js";
+(function () {
+  window.MB = window.MB || {};
 
-document.addEventListener("DOMContentLoaded", function () {
-  initAnimations();
-  initNav();
-  initCarousel();
-  initMenuTabs();
-  initGallery();
-  initContactForm();
-});
+  function iniciar() {
+    if (MB.initAnimations) MB.initAnimations();
+    if (MB.initNav) MB.initNav();
+    if (MB.initCarousel) MB.initCarousel();
+    if (MB.initMenuTabs) MB.initMenuTabs();
+    if (MB.initGallery) MB.initGallery();
+    if (MB.initContactForm) MB.initContactForm();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", iniciar);
+  } else {
+    iniciar();
+  }
+})();
