@@ -496,6 +496,9 @@ MB.I18N.en = {
   "Retrato de Refugio Rentería": "Portrait of Armando Hernández",
   "Retrato de Paola Jiménez": "Portrait of Marisabel Hernández",
 
+  /* ---------- Botón flotante de WhatsApp ---------- */
+  "Escríbenos por WhatsApp": "Message us on WhatsApp",
+
   /* ---------- Cadenas dinámicas (usadas por MB.t en carousel / formulario) ---------- */
   "Ir a la imagen {n}": "Go to image {n}",
   "Escribe tu nombre.": "Enter your name.",
