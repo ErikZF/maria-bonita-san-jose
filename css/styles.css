@@ -134,6 +134,65 @@ p { margin: 0 0 16px; color: var(--color-ink-soft); }
 .btn--whatsapp:hover { background: #2F5F35; transform: translateY(-2px); }
 .icon-chat { width: 18px; height: 18px; flex-shrink: 0; }
 
+/* ---------- Botón flotante de WhatsApp (lo inyecta js/modules/whatsapp-fab.js) ---------- */
+.wa-fab {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 90; /* sobre el header (50), debajo del lightbox (200) */
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  animation: wa-fab-in 0.5s ease 0.6s both;
+}
+.wa-fab-icon {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.45);
+  animation: wa-fab-pulse 2.8s ease-out infinite;
+  transition: transform 0.2s ease;
+}
+.wa-fab-icon svg { width: 32px; height: 32px; display: block; }
+.wa-fab-label {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.84rem;
+  letter-spacing: 0.01em;
+  color: #FAF4E9;
+  background: var(--color-bg-dark);
+  padding: 13px 20px;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.45);
+  transition: transform 0.2s ease;
+}
+.wa-fab:hover .wa-fab-icon { transform: scale(1.06); }
+.wa-fab:hover .wa-fab-label { transform: translateX(2px); }
+.wa-fab:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 4px; border-radius: 999px; }
+
+@keyframes wa-fab-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes wa-fab-pulse {
+  0%   { box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.45), 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  70%  { box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.45), 0 0 0 16px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.45), 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+@media (max-width: 560px) {
+  .wa-fab { right: 16px; bottom: 16px; }
+  .wa-fab-label { display: none; }
+}
+
 /* ---------- Franja "serape" (detalle de color tipo tejido mexicano) ---------- */
 .serape-strip { height: 6px; width: 100%; background: var(--serape); }
 .site-footer { position: relative; }
