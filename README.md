@@ -57,8 +57,19 @@ node build.mjs        # o:  npm run build
 
 Genera los HTML en la raíz. **Corré el build antes de cada commit** si tocaste `src/`.
 
+## Previsualizar
+
+Los enlaces internos son de directorio (`menu/`, `../galeria/`, `../`) para que
+las URLs queden limpias al publicar. Por eso, para probar localmente hay que
+servir la carpeta (abrir los `.html` con doble clic ya no navega bien entre
+páginas):
+
+```
+npx serve .          # o la extensión "Live Server" de VS Code
+```
+
 ## Publicar
 
-El sitio se sirve desde la raíz del repo (GitHub Pages) o subiendo la carpeta a
-Hostinger. Todo con rutas relativas: funciona igual en ambos y abriendo los
-archivos con doble clic. En GitHub Pages, `.nojekyll` evita el procesado Jekyll.
+Se sirve desde la raíz del repo (GitHub Pages) o subiendo la carpeta a Hostinger.
+Rutas relativas: funciona igual en ambos, con URLs `/`, `/menu/`, `/galeria/`, …
+En GitHub Pages, `.nojekyll` evita el procesado Jekyll.
