@@ -16,7 +16,8 @@
     slides.forEach(function (_, i) {
       var dot = document.createElement("button");
       dot.type = "button";
-      dot.setAttribute("aria-label", "Ir a la imagen " + (i + 1));
+      dot.setAttribute("aria-label",
+        (MB.t ? MB.t("Ir a la imagen {n}", { n: i + 1 }) : "Ir a la imagen " + (i + 1)));
       if (i === 0) dot.classList.add("is-active");
       dot.addEventListener("click", function () { goTo(i); resetTimer(); });
       dotsWrap.appendChild(dot);

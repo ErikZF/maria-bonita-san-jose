@@ -10,6 +10,7 @@
   window.MB = window.MB || {};
 
   function iniciar() {
+    if (MB.initI18n) MB.initI18n();
     if (MB.initAnimations) MB.initAnimations();
     if (MB.initNav) MB.initNav();
     if (MB.initCarousel) MB.initCarousel();
