@@ -1,0 +1,10 @@
+{
+  "name": "maria-bonita-san-jose",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sitio estático de María Bonita — cocina mexicana en La Pitaya, San José.",
+  "scripts": {
+    "build": "node build.mjs"
+  }
+}

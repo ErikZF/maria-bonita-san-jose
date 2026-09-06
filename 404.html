@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página no encontrada | María Bonita</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<!-- Página 404 autocontenida: no depende de css/ ni js/ porque el
+     servidor la entrega desde cualquier ruta inexistente.
+     El sitio se sirve bajo /maria-bonita-san-jose/ en GitHub Pages;
+     si lo mueves a la raíz de un dominio propio, cambia ese prefijo por "/". -->
+<style>
+  :root {
+    --chile: #AE2A20; --cempasuchil: #EFA300; --nopal: #3E7D45;
+    --talavera: #1B7F91; --crema: #FBF3E4; --vino: #3B1220;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    font-family: "Work Sans", "Segoe UI", sans-serif; color: var(--crema);
+    background: var(--vino); padding: 40px 24px; text-align: center;
+  }
+  .serape { position: fixed; left: 0; right: 0; height: 6px; background:
+    repeating-linear-gradient(90deg, var(--chile) 0 14px, var(--cempasuchil) 14px 28px,
+      var(--talavera) 28px 42px, var(--chile) 42px 56px, var(--nopal) 56px 70px); }
+  .serape--top { top: 0; } .serape--bottom { bottom: 0; }
+  .wrap { max-width: 30rem; }
+  .code { font-family: "Space Mono", monospace; letter-spacing: 0.3em; text-transform: uppercase;
+    font-size: 0.8rem; color: var(--cempasuchil); }
+  h1 { font-family: "Yeseva One", Georgia, serif; font-weight: 400; font-size: clamp(2rem, 6vw, 3rem);
+    margin: 12px 0 14px; line-height: 1.1; }
+  p { color: #E9DCC5; line-height: 1.6; margin: 0 0 28px; }
+  a.btn { display: inline-flex; align-items: center; gap: 10px; font-family: "Space Mono", monospace;
+    text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; padding: 15px 28px;
+    border-radius: 6px; background: var(--chile); color: var(--crema); text-decoration: none;
+    box-shadow: 0 18px 40px -20px rgba(0,0,0,0.6); transition: transform 0.2s ease, background 0.2s ease; }
+  a.btn:hover { background: #7F1E17; transform: translateY(-2px); }
+</style>
+</head>
+<body>
+<div class="serape serape--top" aria-hidden="true"></div>
+<div class="wrap">
+  <p class="code">Error 404</p>
+  <h1>Esta página se nos perdió</h1>
+  <p>La dirección que buscas no existe o cambió de lugar. Volvé al inicio y seguimos desde ahí.</p>
+  <a class="btn" href="/maria-bonita-san-jose/">Ir al inicio</a>
+</div>
+<div class="serape serape--bottom" aria-hidden="true"></div>
+</body>
+</html>
