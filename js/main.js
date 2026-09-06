@@ -11,8 +11,10 @@ import { initCarousel } from "./modules/carousel.js";
 import { initMenuTabs } from "./modules/menu-tabs.js";
 import { initGallery } from "./modules/gallery.js";
 import { initContactForm } from "./modules/contact-form.js";
+import { initAnimations } from "./modules/animations.js";
 
 document.addEventListener("DOMContentLoaded", function () {
+  initAnimations();
   initNav();
   initCarousel();
   initMenuTabs();
