@@ -58,7 +58,8 @@ function buildPage(file) {
   const { meta, body } = parsePage(read(`pages/${file}`), file);
   const url = meta.url || "";
   const P = prefixFor(url);
-  const fill = (s) => put(s, "{{PREFIX}}", P);
+  const HOME = P || "./"; // enlace a la home: "./" desde la raíz, "../" desde una subcarpeta
+  const fill = (s) => put(put(s, "{{PREFIX}}", P), "{{HOME}}", HOME);
 
   // head con título y descripción de esta página
   let head = fill(partials.HEAD);
