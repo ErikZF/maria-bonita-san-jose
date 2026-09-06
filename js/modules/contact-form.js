@@ -1,53 +1,87 @@
-/* ---------- Formulario de reservas (contáctenos) — envía por WhatsApp ---------- */
+/* ---------- Formulario de reservas (contáctenos) — envía por WhatsApp ----------
+   Al enviar: valida, arma un mensaje y abre WhatsApp con el texto listo.
+   No hay servidor: todo ocurre en el navegador. Necesita config.js antes. */
 
-import { WHATSAPP_NUMBER, abrirWhatsApp } from "../config.js";
+(function () {
+  window.MB = window.MB || {};
 
-export function initContactForm() {
-  var form = document.querySelector("#reserva-form");
-  if (form) {
-    var msg = form.querySelector(".form-msg");
-    var tipoLabels = {
-      mesa: "Mesa regular",
-      cumpleanos: "Cumpleaños",
-      corporativo: "Evento corporativo / posada",
-      privado: "Salón privado",
-      otro: "Otro"
-    };
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-      var nombre = form.querySelector("#nombre").value.trim();
-      var telefono = form.querySelector("#telefono").value.trim();
-      var personas = form.querySelector("#personas").value.trim();
-      var fecha = form.querySelector("#fecha").value;
-      var hora = form.querySelector("#hora").value;
-      var tipo = form.querySelector("#tipo").value;
-      var mensaje = form.querySelector("#mensaje").value.trim();
+  var TIPO_LABELS = {
+    catering: "Catering / evento",
+    mesa: "Mesa regular",
+    cumpleanos: "Cumpleaños",
+    corporativo: "Evento corporativo / posada",
+    privado: "Salón privado",
+    otro: "Otro"
+  };
 
-      var texto = "Hola María Bonita, quiero reservar:\n" +
-        "Nombre: " + nombre + "\n" +
-        "Teléfono/WhatsApp: " + telefono + "\n" +
-        "Personas: " + personas + "\n" +
-        "Fecha: " + fecha + "\n" +
-        "Hora: " + hora + "\n" +
-        "Tipo de reserva: " + (tipoLabels[tipo] || tipo) +
-        (mensaje ? "\nMensaje: " + mensaje : "");
+  MB.initContactForm = function () {
+    var form = document.querySelector("#reserva-form") || document.querySelector(".contact-form");
 
-      abrirWhatsApp(texto);
+    if (form && form.tagName === "FORM") {
+      var msg = form.querySelector(".form-msg");
 
-      msg.textContent = "Te estamos llevando a WhatsApp para enviar tu reserva a María Bonita. Si no se abrió, escríbenos directo al " + "+" + WHATSAPP_NUMBER + ".";
-      msg.classList.add("is-visible", "is-success");
-      form.reset();
-    });
-  }
+      var mostrarEstado = function (texto, estado) {
+        if (!msg) return;
+        msg.textContent = texto;
+        msg.classList.remove("is-success", "is-error");
+        msg.classList.add("is-visible");
+        msg.classList.add(estado === "ok" ? "is-success" : "is-error");
+      };
 
-  /* Fecha mínima = hoy, si el campo de fecha existe */
-  var fecha = document.querySelector("#fecha");
-  if (fecha) {
-    var hoy = new Date().toISOString().split("T")[0];
-    fecha.setAttribute("min", hoy);
-  }
-}
+      var valor = function (id) {
+        var campo = form.querySelector("#" + id);
+        return campo ? campo.value.trim() : "";
+      };
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Validación nativa (los campos ya tienen required / type)
+        if (typeof form.checkValidity === "function" && !form.checkValidity()) {
+          if (typeof form.reportValidity === "function") form.reportValidity();
+          mostrarEstado("Revisa los campos marcados antes de enviar.", "error");
+          return;
+        }
+
+        var nombre = valor("nombre");
+        var telefono = valor("telefono");
+        var personas = valor("personas");
+        var fecha = valor("fecha");
+        var hora = valor("hora");
+        var tipo = valor("tipo");
+        var mensaje = valor("mensaje");
+
+        var texto = "Hola María Bonita, quiero reservar:\n" +
+          "Nombre: " + nombre + "\n" +
+          "Teléfono/WhatsApp: " + telefono + "\n" +
+          "Personas: " + personas + "\n" +
+          "Fecha: " + fecha + "\n" +
+          "Hora: " + hora + "\n" +
+          "Tipo de reserva: " + (TIPO_LABELS[tipo] || tipo || "Sin especificar") +
+          (mensaje ? "\nMensaje: " + mensaje : "");
+
+        MB.abrirWhatsApp(texto);
+
+        mostrarEstado(
+          "Te llevamos a WhatsApp para enviar tu solicitud a María Bonita. " +
+          "Si no se abrió, escríbenos directo al " + MB.WHATSAPP_DISPLAY + ".",
+          "ok"
+        );
+        form.reset();
+      });
+
+      // Al corregir un campo, se quita el aviso de error
+      form.addEventListener("input", function () {
+        if (msg && msg.classList.contains("is-error")) {
+          msg.classList.remove("is-visible", "is-error");
+        }
+      });
+    }
+
+    /* Fecha mínima = hoy, si el campo de fecha existe */
+    var campoFecha = document.querySelector("#fecha");
+    if (campoFecha && !campoFecha.getAttribute("min")) {
+      campoFecha.setAttribute("min", new Date().toISOString().split("T")[0]);
+    }
+  };
+})();

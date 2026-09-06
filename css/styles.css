@@ -361,6 +361,7 @@ section.section-menu{
 .form-msg { grid-column: 1 / -1; padding: 14px 16px; border-radius: var(--radius); font-size: 0.92rem; display: none; }
 .form-msg.is-visible { display: block; }
 .form-msg.is-success { display: block; background: #E7EFDF; color: var(--color-accent2); border: 1px solid var(--color-accent2); }
+.form-msg.is-error { display: block; background: #FBE7E5; color: var(--color-primary-dark); border: 1px solid var(--color-primary); }
 
 .contact-info { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 70px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-soft); position: relative; z-index: 1; }
 .contact-map { min-height: 440px; background: var(--color-bg-alt); }
