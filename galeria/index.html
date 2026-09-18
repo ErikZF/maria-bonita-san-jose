@@ -49,22 +49,26 @@
     <div class="gallery-filters" role="tablist" aria-label="Filtrar galería">
       <button class="filter-tab is-active" data-filter="todos">Todos</button>
       <button class="filter-tab" data-filter="platillos">Platillos</button>
-      <button class="filter-tab" data-filter="bebidas">Bebidas</button>
       <button class="filter-tab" data-filter="salon">restaurante</button>
       <button class="filter-tab" data-filter="eventos">Eventos</button>
     </div>
-    <!-- ===== categorias: bebidas, platillos, eventos, salon ===== -->
+    <!-- ===== categorias: platillos, eventos, salon ===== -->
+    <!-- Fotos propias en img/galeria/ (antes enlazaban a Facebook/TripAdvisor/Uber:
+         las de Facebook se rompieron porque esas URL firmadas expiran). -->
     <div class="gallery-masonry">
-      <figure data-category="bebidas"><img src="https://scontent.fsyq2-1.fna.fbcdn.net/v/t39.30808-6/495373432_1298895585572362_3418314015294734321_n.jpg?stp=dst-jpg_tt6&cstp=mx768x960&ctp=s768x960&_nc_cat=102&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_ohc=HwcV7qRwvawQ7kNvwGnnQ7s&_nc_oc=Adq-PSYm9fCMuAkc9V0TTAB88C8OFu_Z3Qhr9QcqFmk_zGMlVbhAoUg0owYP3gn3xjo&_nc_zt=23&_nc_ht=scontent.fsyq2-1.fna&_nc_gid=tcpfj-9O0NY1Y53JBuOjcQ&_nc_ss=7b2a8&oh=00_AQKQSzI5sJcTNUscxZ3e3y4vJVckpgSQE7YVWgZJJZ9xOQ&oe=6AA16442" alt="margarita bear"><figcaption class="gallery-caption">Margarita bear</figcaption></figure>
-      <figure data-category="salon"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/05/11/7d/maria-bonita-has-been.jpg?w=1200&h=1200&s=1" alt="Patio exterior del restaurante"><figcaption class="gallery-caption">Patio al aire libre</figcaption></figure>
-      <figure data-category="salon"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/4b/00/dd/maria-bonita.jpg?w=900&h=900&s=1" alt="salon"><figcaption class="gallery-caption">Salon</figcaption></figure>
-      <figure data-category="platillos"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/88/11/8b/img-20160813-183613-largejpg.jpg?w=1200&h=1200&s=1" alt="Gran Burrote"><figcaption class="gallery-caption">Gran Burrote</figcaption></figure>
-      <figure data-category="platillos"><img src="https://tb-static.uber.com/prod/image-proc/processed_images/bbb7889290327773368737b05ac125dc/fb86662148be855d931b37d6c1e5fcbe.jpeg" alt="platos"><figcaption class="gallery-caption">Nueestros platos</figcaption></figure>
-      <figure data-category="platillos"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/b5/0b/1f/quesadilla.jpg?w=400&h=-1&s=1" alt="Quesadillas"><figcaption class="gallery-caption">Quesadillas</figcaption></figure>
-      <figure data-category="platillos"><img src="https://scontent.fsyq2-1.fna.fbcdn.net/v/t39.30808-6/495337770_1298898795572041_4280649813751778387_n.jpg?stp=dst-jpg_tt6&cstp=mx768x960&ctp=s768x960&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_ohc=8IaOQtagbnUQ7kNvwGxQZbk&_nc_oc=Adpx3Szl8DQ8KCUuI7f1stx3Nqbg2WLE91o3J5GsVO2PpGh--PdIImq-kLMkCpS01hc&_nc_zt=23&_nc_ht=scontent.fsyq2-1.fna&_nc_gid=qzLCVlshqA1GknMRzyoFew&_nc_ss=7b2a8&oh=00_AQJz9YFOMtdL-P9yaBarHA_XYKlpn8SUQf4I2u_tmrcENA&oe=6AA17B55" alt=" margarita fresa"><figcaption class="gallery-caption">Margarita Fresa</figcaption></figure>
-      <figure data-category="eventos"><img src="https://scontent.fsyq2-1.fna.fbcdn.net/v/t39.30808-6/574948099_1461210359340883_8667200492021671781_n.jpg?stp=dst-jpg_tt6&cstp=mx1719x900&ctp=s1719x900&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_ohc=gNg4hCfRdasQ7kNvwHl5Gb5&_nc_oc=AdpedCn1_R-p5YmVr_I4m0zp56LJ6aegYXdzKHR6q4dpb3CtacTlWfeUq5UWhXrmoCM&_nc_zt=23&_nc_ht=scontent.fsyq2-1.fna&_nc_gid=oENpH3tkUGpQ0FPRK3PNOg&_nc_ss=7b2a8&oh=00_AQKY3Smlh1rmdzVI4uR0QmjTgBPHbrvGLYASvx3srhCUog&oe=6AA179AA" alt="catrinas"><figcaption class="gallery-caption">catrinas</figcaption></figure>
-      <figure data-category="platillos"><img src="https://scontent.fsyq2-1.fna.fbcdn.net/v/t39.30808-6/496903046_1300224345439486_3626246607912671352_n.jpg?stp=dst-jpg_tt6&cstp=mx960x864&ctp=s960x864&_nc_cat=110&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_ohc=OM6zdY6YqL0Q7kNvwG2TJTd&_nc_oc=Adp1DgtyMDAAYtmWxd_AM0VJo0lp_ypor5bbHT1G-x0wZs4T4RDC5zRHX_zThYllUG4&_nc_zt=23&_nc_ht=scontent.fsyq2-1.fna&_nc_gid=B4Mjh2bdgBLSnZ3zBMq2Og&_nc_ss=7b2a8&oh=00_AQIsVruZzPZBS501SVyna2KlAlFaFqHcFFQ3JkmxHsXJ7g&oe=6AA15A3C" alt="Enchiladas de mole"><figcaption class="gallery-caption">Enchiladas de mole</figcaption></figure>
-      <figure data-category="eventos"><img src="https://scontent.fsyq6-1.fna.fbcdn.net/v/t39.30808-6/468470562_10169947094480637_533409258644885546_n.jpg?stp=dst-jpg_tt6&cstp=mx1280x768&ctp=s1280x768&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_ohc=3vovSNOjLeEQ7kNvwGOw1BO&_nc_oc=AdqVcivxgQanLuNN9OFVCVkBKNEUu73y06h1jPPtADGftftszKacaQktBuhXZGAzZ5U&_nc_zt=23&_nc_ht=scontent.fsyq6-1.fna&_nc_gid=Ia-U-eAPmuXVD8-5tLe7hQ&_nc_ss=7b2a8&oh=00_AQITX4oAz57A4FQrds1sCZ1jKDxGHWrfiFtWIsN0cgbGWQ&oe=6AA20A8D" alt="Catering service"><figcaption class="gallery-caption">Catering service</figcaption></figure>
+      <figure data-category="platillos"><img src="../img/galeria/gran-burrote.jpg" alt="Gran Burrote"><figcaption class="gallery-caption">Gran Burrote</figcaption></figure>
+      <figure data-category="platillos"><img src="../img/galeria/platos.jpg" alt="Platillos de María Bonita"><figcaption class="gallery-caption">Nuestros platos</figcaption></figure>
+      <figure data-category="platillos"><img src="../img/galeria/quesadillas.jpg" alt="Quesadillas"><figcaption class="gallery-caption">Quesadillas</figcaption></figure>
+      <figure data-category="salon"><img src="../img/galeria/patio-exterior.jpg" alt="Patio exterior del restaurante"><figcaption class="gallery-caption">Patio al aire libre</figcaption></figure>
+      <figure data-category="salon"><img src="../img/galeria/comedor-principal.jpg" alt="Comedor principal del restaurante"><figcaption class="gallery-caption">Comedor principal</figcaption></figure>
+      <figure data-category="salon"><img src="../img/galeria/salon-1.jpg" alt="Mesa con papel picado en el salón"><figcaption class="gallery-caption">Ambiente festivo</figcaption></figure>
+      <figure data-category="salon"><img src="../img/galeria/salon-2.jpg" alt="Vista del comedor de María Bonita"><figcaption class="gallery-caption">Nuestro comedor</figcaption></figure>
+      <figure data-category="salon"><img src="../img/galeria/salon-3.jpg" alt="Clientes en una mesa de María Bonita"><figcaption class="gallery-caption">Un rato en María Bonita</figcaption></figure>
+      <figure data-category="eventos"><img src="../img/galeria/evento-1.jpg" alt="Familia celebrando en María Bonita"><figcaption class="gallery-caption">Celebración en familia</figcaption></figure>
+      <figure data-category="eventos"><img src="../img/galeria/evento-2.jpg" alt="Grupo reunido en María Bonita"><figcaption class="gallery-caption">Reunión en grupo</figcaption></figure>
+      <figure data-category="eventos"><img src="../img/galeria/evento-3.jpg" alt="Familia disfrutando en el patio"><figcaption class="gallery-caption">Tarde en familia</figcaption></figure>
+      <figure data-category="eventos"><img src="../img/galeria/evento-4.jpg" alt="Grupo celebrando una ocasión especial"><figcaption class="gallery-caption">Celebrando juntos</figcaption></figure>
+      <figure data-category="eventos"><img src="../img/galeria/evento-5.jpg" alt="Familia numerosa en María Bonita"><figcaption class="gallery-caption">Familias que nos visitan</figcaption></figure>
     </div>
   </div>
 </section>
