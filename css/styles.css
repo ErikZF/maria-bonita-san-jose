@@ -364,7 +364,8 @@ section.section-menu{
 
 /* ---------- Galería dinámica ---------- */
 .section-galeria{
-  background-color: black;
+  /* antes negro puro: un carbón cálido hace que las fotos resalten más */
+  background-color: #1c130f;
 }
 .gallery-filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; position: relative; z-index: 1; }
 .gallery-masonry { column-count: 3; column-gap: 18px; position: relative; z-index: 1; }
@@ -375,12 +376,18 @@ section.section-menu{
   border-radius: var(--radius);
   position: relative;
   cursor: pointer;
+  box-shadow: 0 16px 32px -20px rgba(0, 0, 0, 0.8);
 }
 .js .gallery-masonry figure { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .js .gallery-masonry figure.is-visible { opacity: 1; transform: translateY(0); }
 .gallery-masonry figure.is-hidden { display: none; }
-.gallery-masonry img { width: 100%; display: block; transition: transform 0.5s ease; }
-.gallery-masonry figure:hover img { transform: scale(1.06); }
+.gallery-masonry img {
+  width: 100%;
+  display: block;
+  filter: brightness(1.08) contrast(1.05) saturate(1.08);
+  transition: transform 0.5s ease, filter 0.4s ease;
+}
+.gallery-masonry figure:hover img { transform: scale(1.06); filter: brightness(1.14) contrast(1.07) saturate(1.12); }
 .gallery-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 12px 14px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.04em; color: #F3E6CC; background: linear-gradient(0deg, rgba(36,22,16,0.82), transparent); }
 @media (max-width: 760px) { .gallery-masonry { column-count: 2; } }
 @media (max-width: 480px) { .gallery-masonry { column-count: 1; } }

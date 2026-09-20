@@ -26,12 +26,11 @@ MB.I18N.en = {
   "Contacto": "Contact",
   "Cocina mexicana de fonda en el corazón de La Pitaya, San José.":
     "Home-style Mexican cooking in the heart of La Pitaya, San José.",
-  "WhatsApp: +506 8740-1660": "WhatsApp: +506 8740-1660",
+  "WhatsApp: +506 8675-5665": "WhatsApp: +506 8675-5665",
+  "Teléfono: +506 2256-5462": "Phone: +506 2256-5462",
   "La Pitaya, San José, Costa Rica": "La Pitaya, San José, Costa Rica",
-  "Facebook: /mariabonitacr": "Facebook: /mariabonitacr",
   "© 2026 María Bonita. Todos los derechos reservados.":
     "© 2026 María Bonita. All rights reserved.",
-  "Sitio de ejemplo — plantilla editable": "Sample site — editable template",
 
   /* ---------- Títulos de pestaña (<title>) ---------- */
   "María Bonita | Cocina mexicana en La Pitaya, San José":
@@ -381,11 +380,6 @@ MB.I18N.en = {
     "We open our third location, in downtown Santa Ana",
   "Seguimos trabajando con las mismas personas y mejores sabores":
     "We keep working with the same people and even better flavors",
-  "El equipo": "The team",
-  "Las manos detrás de cada platillo": "The hands behind every dish",
-  "Chef ejecutiva": "Executive chef",
-  "Fundador y anfitrión": "Founder and host",
-  "Coordinadora de eventos y catering": "Events and catering coordinator",
   "Le esperamos": "We're waiting for you",
   "Venga a conocernos en La Pitaya": "Come visit us in La Pitaya",
   "Reserve su mesa, escríbanos por Uber Eats para un pedido rápido, o pregunte por nuestro servicio de catering para su próxima celebración.":
@@ -459,8 +453,8 @@ MB.I18N.en = {
   "La Pitaya, San José, Costa Rica.": "La Pitaya, San José, Costa Rica.",
   "WhatsApp": "WhatsApp",
   "— nuestro único medio de contacto directo.": "— our only direct contact channel.",
+  "Teléfono": "Phone",
   "Facebook": "Facebook",
-  "Maria Bonita": "María Bonita",
   "Martes – Jueves": "Tuesday – Thursday",
   "Viernes – Sábado": "Friday – Saturday",
   "Domingo": "Sunday",
@@ -492,9 +486,6 @@ MB.I18N.en = {
   "platos": "dishes",
   "salon": "dining room",
   "restaurante": "restaurant",
-  "Retrato de Ximena Rentería": "Portrait of Yolanda Aquino",
-  "Retrato de Refugio Rentería": "Portrait of Armando Hernández",
-  "Retrato de Paola Jiménez": "Portrait of Marisabel Hernández",
 
   /* ---------- Botón flotante de WhatsApp ---------- */
   "Escríbenos por WhatsApp": "Message us on WhatsApp",
