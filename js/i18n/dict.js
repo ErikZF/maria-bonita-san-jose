@@ -366,11 +366,14 @@ MB.I18N.en = {
   "Desde 2016": "Since 2016",
   "Nuestra historia": "Our story",
   "Asi es como llegamos a San Jose.": "This is how we came to San José.",
-  "Quiénes somos": "Who we are",
-  "María Bonita lleva el nombre de Maria felix de la cancion de Agustin Lara, somos una familia mexicana que emigró al pais en 1998 y a base de esfuerzo, trabajo duro logramos llegar a sus paladares y enamorarlos con los sabores de nuestra cocina.":
-    "María Bonita is named after María Félix from the Agustín Lara song. We are a Mexican family that emigrated to Costa Rica in 1998 and, through effort and hard work, won people over with the flavors of our kitchen.",
+  "Todo empezó en el año de 1998, cuando Armando Hernández y Alicia Galindo, los dos oriundos de Puebla, México, quienes con esfuerzo y dedicación decidieron emprender con sabores familiares y únicos en este maravilloso mundo de la cocina mexicana, fundaron María Bonita.":
+    "It all began in 1998, when Armando Hernández and Alicia Galindo, both originally from Puebla, Mexico, set out with effort and dedication to bring familiar, one-of-a-kind flavors to the wonderful world of Mexican cooking, and founded María Bonita.",
   "Hoy seguimos atentiendo con esa atención especial y sabor que nos caracteriza tanto, porque para nosotros comer bien también es celebrar.":
     "Today we keep serving with that special care and flavor we're known for, because to us eating well is also celebrating.",
+  "Nuestro equipo": "Our team",
+  "El alma de María Bonita": "The soul of María Bonita",
+  "Los cocineros son el alma de María Bonita, pues cada uno aporta su sello único al menú. Nuestra experiencia hace un recuento de recetas familiares y se seleccionan cuidadosamente los ingredientes para la creación de los platillos. Este compromiso adquirido con nuestros clientes nos ha llevado a cocinar con amor y dedicación.":
+    "Our cooks are the soul of María Bonita — each one brings their own touch to the menu. Our experience draws on family recipes, and every ingredient is carefully chosen for each dish. That commitment to our guests is what leads us to cook with love and dedication.",
   "Apertura del primer local en La Pitaya": "First location opens in La Pitaya",
   "LLevamos la cocina a su casa, lugar de trabajo celebraciones, con nuestro servico de catering siempre atendido de la mejor manera":
     "We bring the kitchen to your home, workplace and celebrations with our catering service, always attentively run",
